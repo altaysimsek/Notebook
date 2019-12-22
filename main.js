@@ -58,8 +58,8 @@ yargs.command({
             type:'string'
         },
     },
-    handler: function () {
-        console.log("Reading your notes !");
+    handler: function (argv) {
+        file.readNote(argv.title)
     }
 });
 

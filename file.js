@@ -38,10 +38,18 @@ const listNotes = function(){
     });
 }
 
-const readNote = function(){
-    
+const readNote = function(title){
+    const notes = loadNotes()
+    notes.forEach(element =>{
+        if(element.title == title){
+            console.log(chalk.red.bold('Baslik : ')+element.title)
+            console.log(chalk.blue.bold('Aciklama : ')+element.desc)
+            console.log(chalk.green.bold("-----------------------------------------------"))
+        }
+    })
+
 }
 
 
-module.exports = {loadNotes,saveNotes,addNote,listNotes}
+module.exports = {loadNotes,saveNotes,addNote,listNotes,readNote}
 
