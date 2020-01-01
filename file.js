@@ -52,9 +52,20 @@ const readNote = function(title){
             console.log(chalk.green.bold("-----------------------------------------------"))
         }
     })
+}
 
+const removeNote = function(title){
+    const notes = loadNotes()
+    for (let index = 0; index < notes.length; index++) {
+        if(notes[index].title == title){
+            console.log(chalk.green.bold('Not bulundu.'))
+            notes.splice(index,1)
+        }
+    }
+    saveNotes(notes)
+    console.log(chalk.red.bold('Not silindi.'))
 }
 
 
-module.exports = {loadNotes,saveNotes,addNote,listNotes,readNote}
+module.exports = {loadNotes,saveNotes,addNote,listNotes,readNote,removeNote}
 
