@@ -56,14 +56,26 @@ const readNote = function(title){
 
 const removeNote = function(title){
     const notes = loadNotes()
+    const newNotes = notes.filter(function(note){
+        return note.title != title  
+    })
+    if(notes.length > newNotes.length){
+        console.log(chalk.red.bold('Notunuz silindi.'))
+        saveNotes(newNotes)
+    }else{
+        console.log(chalk.blue.bold('Notunuz bulunamadı :\'('))
+    }
+    
+    /*
     for (let index = 0; index < notes.length; index++) {
         if(notes[index].title == title){
-            console.log(chalk.green.bold('Not bulundu.'))
             notes.splice(index,1)
         }
     }
     saveNotes(notes)
     console.log(chalk.red.bold('Not silindi.'))
+    */
+
 }
 
 
