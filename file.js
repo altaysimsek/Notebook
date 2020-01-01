@@ -1,21 +1,26 @@
 const fs = require('fs');
 const chalk = require('chalk')
 
-const addNote = function(title,desc,callback){
+const addNote = function(title,desc){
     const notes = loadNotes();
-
-    notes.push({
-        title:title,
-        desc:desc
+    const duplicatesNotes = notes.filter(function(note){
+        return note.title === title
     })
-
-    saveNotes(notes,callback)
+    if(duplicatesNotes.length === 0){
+        notes.push({
+            title: title,
+            desc: desc,
+        })
+        saveNotes(notes)
+        console.log(chalk.green.bold('Not başarıyla eklendi.'))
+    }else{
+        console.log(chalk.red.bold('Bu başlik daha önce kullanildi.'))
+    }
 }
 
-const saveNotes = function(notes,callback){
+const saveNotes = function(notes){
     const dataJSON = JSON.stringify(notes)
     fs.writeFileSync('notes.json',dataJSON)
-    callback();
 
 
 }

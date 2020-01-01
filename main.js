@@ -39,7 +39,7 @@ yargs.command({
         console.log("Removing note !");
     }
 });
-//
+//list your notes
 yargs.command({
     command: 'list',
     describe: 'List all notes !',
@@ -47,7 +47,7 @@ yargs.command({
         file.listNotes()
     }
 });
-
+//read your notes from title 
 yargs.command({
     command: "read",
     describe: 'Read notes !',
