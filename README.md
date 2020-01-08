@@ -4,4 +4,5 @@ A notebook
 
 	node main.js add --title="<your title>" --desc="<your desc>"
 	node main.js list 
-	node main.js read --title="<your notes title>" 
+	node main.js read --title="<your notes title>"
+	node main.js remove --title="<your notes title>"
