@@ -59,6 +59,7 @@ const removeNote = function(title){
     const newNotes = notes.filter(function(note){
         return note.title != title  
     })
+    
     if(notes.length > newNotes.length){
         console.log(chalk.red.bold('Notunuz silindi.'))
         saveNotes(newNotes)
